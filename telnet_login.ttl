@@ -1,0 +1,47 @@
+;============================================= 
+HOSTNAME = 'HOST NAME'
+HOSTADDR = 'HOST IP ADDRESS'
+USERNAME = 'username' 
+PASSWORD = 'password' 
+ENABLEPW = 'enable password' 
+TTINI = "teraterm.ini"
+
+;============================================= 
+
+ 
+;; build command
+COMMAND = HOSTADDR 
+strconcat COMMAND ':23 /nossh /T=1'
+strconcat COMMAND ' /F='
+strconcat COMMAND TTINI
+ 
+;; connect
+connect COMMAND
+ 
+;; Login
+wait 'login:' 'Username:' 
+sendln USERNAME 
+sendln PASSWORD
+sendln 'enable'
+sendln ENABLEPW
+sendln 'show clock'
+ 
+call Logging
+
+end
+
+;---------------------------------------------------------------
+;---------------------------------------------------------------
+:Logging
+
+getdir CurDir
+Logfile = CurDir
+strconcat Logfile HOSTNAME
+getdate Logdatetime '_%Y%m%d-%H%M%S'
+strconcat Logfile Logdatetime
+strconcat Logfile '.log'
+
+logopen Logfile 0 1 0
+
+return
+;---------------------------------------------------------------

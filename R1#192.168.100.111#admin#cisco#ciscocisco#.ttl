@@ -1,11 +1,16 @@
 ;============================================= 
-HOSTNAME = 'HOST NAME'
-HOSTADDR = 'HOST IP ADDRESS'
-USERNAME = 'username' 
-PASSWORD = 'password' 
-ENABLEPW = 'enable password' 
 TTINI = "teraterm.ini"
 ;============================================= 
+
+;parse filename with '#'
+strsplit param1 '#'
+
+;parsed characters
+HOSTNAME = groupmatchstr1
+HOSTADDR = groupmatchstr2
+USERNAME = groupmatchstr3
+PASSWORD = groupmatchstr4
+ENABLEPW = groupmatchstr5
 
 getdir CurDir
 

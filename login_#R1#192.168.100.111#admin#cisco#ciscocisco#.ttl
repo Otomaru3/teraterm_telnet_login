@@ -6,11 +6,11 @@ TTINI = "teraterm.ini"
 strsplit param1 '#'
 
 ;parsed characters
-HOSTNAME = groupmatchstr1
-HOSTADDR = groupmatchstr2
-USERNAME = groupmatchstr3
-PASSWORD = groupmatchstr4
-ENABLEPW = groupmatchstr5
+HOSTNAME = groupmatchstr2
+HOSTADDR = groupmatchstr3
+USERNAME = groupmatchstr4
+PASSWORD = groupmatchstr5
+ENABLEPW = groupmatchstr6
 
 getdir CurDir
 
